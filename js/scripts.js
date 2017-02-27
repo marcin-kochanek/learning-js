@@ -1,20 +1,25 @@
-var result,
-	a,
-	check,
-	h;
+var maleNames = ['Marcin', 'Adam', 'Maciej', 'Kacper'],
+	femaleNames = ['Ola', 'Kasia', 'Edyta', 'Beata'];
 
-function getTriangleArea(a, h) {
-	if (a > 0 && h > 0) {
-		result = (a * h) / 2;
+var allNames = maleNames.concat(femaleNames);
+
+var newName = prompt('Podaj imię', 'Marian');
+
+var indexOfNewName = allNames.indexOf(newName);
+
+if (indexOfNewName === -1) {
+	indexOfNewName = allNames.push(newName);
+	alert('Imię "' + newName + '" zostało dodane do tablicy.');
+} else {
+	newName = prompt('Imię "' + newName + '" już znajduje się w tablicy. Wybierz inne imię.', 'Marian');
+	indexOfNewName = allNames.indexOf(newName);
+	if (indexOfNewName != -1) {
+		alert('Po raz drugi wybrałeś imię, które znajduje się w tablicy. Do dwóch razy sztuka, do widzenia!');
 	} else {
-		result = 'Nieprawidłowe dane';
+		indexOfNewName = allNames.push(newName);
+		alert('Imię "' + newName + '" zostało dodane do tablicy.');
 	}
-	return result;
 }
 
-var triangle1Area = getTriangleArea(5, 10);
-var triangle2Area = getTriangleArea(-5, 10);
-var triangle3Area = getTriangleArea(10, 15);
-
-//console.log(triangle2Area);
-//console.log( getTriangleArea(10,6) );
+console.log(allNames);
+console.log(newName.length);
