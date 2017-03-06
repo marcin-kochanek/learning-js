@@ -1,25 +1,7 @@
-var maleNames = ['Marcin', 'Adam', 'Maciej', 'Kacper'],
-	femaleNames = ['Ola', 'Kasia', 'Edyta', 'Beata'];
+var text = 'Papugi koszą trawę, unosząc się nad ziemią 15 centymetrów, na czerwonych dywanach.',
+	animal = 'Zielone słonie';
 
-var allNames = maleNames.concat(femaleNames);
-
-var newName = prompt('Podaj imię', 'Marian');
-
-var indexOfNewName = allNames.indexOf(newName);
-
-if (indexOfNewName === -1) {
-	indexOfNewName = allNames.push(newName);
-	alert('Imię "' + newName + '" zostało dodane do tablicy.');
-} else {
-	newName = prompt('Imię "' + newName + '" już znajduje się w tablicy. Wybierz inne imię.', 'Marian');
-	indexOfNewName = allNames.indexOf(newName);
-	if (indexOfNewName != -1) {
-		alert('Po raz drugi wybrałeś imię, które znajduje się w tablicy. Do dwóch razy sztuka, do widzenia!');
-	} else {
-		indexOfNewName = allNames.push(newName);
-		alert('Imię "' + newName + '" zostało dodane do tablicy.');
-	}
-}
-
-console.log(allNames);
-console.log(newName.length);
+//animal = animal.toUpperCase();
+//textReplaced = text.replace('Papugi', animal.toUpperCase());
+//startIndex = (textReplaced.length)/2;
+console.log( text.replace('Papugi', animal.toUpperCase()).slice(0,[text.replace('Papugi', animal.toUpperCase()).length]/2));
