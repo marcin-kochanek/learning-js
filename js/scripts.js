@@ -1,7 +1,5 @@
-function rysuj(n) { 
-  for ( var star = '' ; star.length < n ;) {
-  	for ( star = '*' ; star.length - 1 < n*2-1; star += '**') {
-  		console.log(star);
-  	}
-}
+var classes = document.getElementsByClassName('button');
+
+for (var index = 0; index < classes.length; index++) {
+		console.log(classes[index].innerText);
 }
