@@ -36,5 +36,6 @@ if (newName.length != 0) {
 	}
 }
 
+
 console.log(allNames);
 console.log(newName.length);
