@@ -1,25 +1,9 @@
-var maleNames = ['Marcin', 'Adam', 'Maciej', 'Kacper'],
-	femaleNames = ['Ola', 'Kasia', 'Edyta', 'Beata'];
+var add = document.getElementById('js-addElem'),
+	list = document.getElementById('js-list'),
+	number = document.getElementsByTagName('li');
 
-var allNames = maleNames.concat(femaleNames);
+add.addEventListener('click', function(e) {
+	var index = number.length;
+	list.innerHTML += '<li>item ' + index + '</li>';
+});
 
-var newName = prompt('Podaj imię', 'Marian');
-
-var indexOfNewName = allNames.indexOf(newName);
-
-if (indexOfNewName === -1) {
-	indexOfNewName = allNames.push(newName);
-	alert('Imię "' + newName + '" zostało dodane do tablicy.');
-} else {
-	newName = prompt('Imię "' + newName + '" już znajduje się w tablicy. Wybierz inne imię.', 'Marian');
-	indexOfNewName = allNames.indexOf(newName);
-	if (indexOfNewName != -1) {
-		alert('Po raz drugi wybrałeś imię, które znajduje się w tablicy. Do dwóch razy sztuka, do widzenia!');
-	} else {
-		indexOfNewName = allNames.push(newName);
-		alert('Imię "' + newName + '" zostało dodane do tablicy.');
-	}
-}
-
-console.log(allNames);
-console.log(newName.length);
