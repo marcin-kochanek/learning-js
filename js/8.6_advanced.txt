@@ -1,0 +1,36 @@
+var maleNames = ['Marcin', 'Adam', 'Maciej', 'Kacper'],
+	femaleNames = ['Ola', 'Kasia', 'Edyta', 'Beata'];
+
+var allNames = maleNames.concat(femaleNames);
+
+var newName = prompt('Podaj imiê', 'Marian');
+var indexOfNewName = allNames.indexOf(newName); 
+
+if (newName.length != 0) {
+	if (indexOfNewName === -1) {
+	indexOfNewName = allNames.push(newName);
+	alert('Imiê "' + newName + '" zosta³o dodane do tablicy.');
+	} else {
+	newName = prompt('Imiê "' + newName + '" ju¿ znajduje siê w tablicy. Wybierz inne imiê.', 'Marian');
+	indexOfNewName = allNames.indexOf(newName);
+	if (indexOfNewName != -1) {
+		alert('Po raz drugi wybra³eœ imiê "' + newName + '". Do widzenia!');
+	}
+} else {
+	newName = prompt('Podane imiê musi mieæ co najmniej 1 literê. Podaj jeszcze raz.', 'Marian');
+	if (newName.length = 0) {
+	alert('Po raz drugi nie wpisa³eœ imienia w okienko. Do widzenia!');
+	} else {
+	if (indexOfNewName === -1) {
+	indexOfNewName = allNames.push(newName);
+	alert('Imiê "' + newName + '" zosta³o dodane do tablicy.');
+	} else {
+	newName = prompt('Imiê "' + newName + '" ju¿ znajduje siê w tablicy. Wybierz inne imiê.', 'Marian');
+	indexOfNewName = allNames.indexOf(newName);
+	if (indexOfNewName != -1) {
+		alert('Po raz drugi wybra³eœ imiê "' + newName + '". Do widzenia!');
+	}
+}
+
+console.log(allNames);
+console.log(newName.length);
