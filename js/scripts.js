@@ -35,6 +35,10 @@ function setGameElements() {
         newGameElem.style.display = 'none';
         pickElem.style.display = 'block';
         resultsElem.style.display = 'block';
+        playerPickElem.innerHTML = 'player choice';
+        computerPickElem.innerHTML = 'computer choice';
+        playerResultElem.innerHTML = 'player result';
+        computerResultElem.innerHTML = 'computer result';
       break;
     case 'ended':
         newGameBtn.innerText = 'Play again?';
@@ -93,15 +97,15 @@ function playerPick(playerPick) {
 }
 
 function checkWinner() {
-    if (player.score === 10) {
+    if (player.score === 3) {
         gameState = 'ended';
-        widnow.alert('The winner is ' + player.name + "!");
+        alert('The winner is ' + player.name + "!");
         setGameElements();
     }
 
-    if (computer.score === 10) {
+    if (computer.score === 3) {
     	gameState = 'ended';
-        window.alert('The winner is ' + computer.name + "!");
+        alert('The winner is ' + computer.name + "!");
         setGameElements();
     }
 }
@@ -125,8 +129,11 @@ function checkRoundWinner(playerPick, computerPick) {
         playerResultElem.innerHTML = 'Victory!';
         player.score++;
     } else if (winnerIs == 'computer') {
-        computerResultElem.innerHTML = 'Victory';
+        computerResultElem.innerHTML = 'Victory!';
         computer.score++;
+    } else {
+    	computerResultElem.innerHTML = 'Draw.';
+    	playerResultElem.innerHTML = 'Draw.';
     }
 
     setGamePoints();
