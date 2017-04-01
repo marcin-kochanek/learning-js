@@ -1,21 +1,16 @@
-function Smartphone(brand, price, color) {
-	this.brand = brand; //dzięki użyciu this właściwość "marka" obiektu, który stworzymy, przyjmie wartość argumentu marka
-	this.price = price;
-	this.color = color;
+function Button(text) {
+	this.text = text || 'Hello'; //funkcja kontruująca Button', która tworzy nowe przyciski
 }
 
-Smartphone.prototype.printInfo = function() {
-	console.log('The smartphone brand is ' + this.brand + ', color is ' + this.color + ', and price starts at ' + this.price + '.');
-}
+Button.prototype.Create = function() { //stworzenie metody Create
+		var self = this; //funkcja jest paramentrem innej funkcji, zatem nastąpie utrata kontekstu. Natomiast poprzez zmienną self wskazujemy ten kontekt ponownie.
+		this.$element = $('<button>'); //this.$element trzyma jako właściwość elementu przycisku, którzy tworzymy przez jQuery (po '=')
+		this.$element.text(this.text);
+		this.$element.click(function () { //napisanie funkcji, która wyświetli napis
+			alert(self.text);
+		})
+		$('body').append(this.$element); // umieszczenie elementu w drzewie DOM - 'weź body i przypnij tam elementu'
+	}
 
-Smartphone.prototype.showInfo = function() {
-	alert('The smartphone brand is ' + this.brand + ', color is ' + this.color + ', and price starts at ' + this.price + '.');
-}
-
-var iPhone6s = new Smartphone('Apple', 2250, 'pink rose'),
-	SamsungGalaxyS6 = new Smartphone('Samsung', 2000, 'black'),
-	OnePlusOne = new Smartphone('OnePlus', 1600, 'silver');
-
-iPhone6s.printInfo();
-SamsungGalaxyS6.printInfo();
-OnePlusOne.showInfo();
+var btn1 = new Button('Hello!'); //Tworzenie pierwszej instancji
+btn1.Create();
